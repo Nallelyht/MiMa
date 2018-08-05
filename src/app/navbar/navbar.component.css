@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Oregano');
+.oregano {
+	font-family: 'Oregano';
+}
+.mat-sidenav-container {
+	background: #fff;
+}
+h1 {
+	font-size: 2em;
+	text-align: center;
+	display: inline;
+}
+img {
+	vertical-align: middle;
+	width: 100px;
+	padding-left: 2%;
+}
+.blank-grow {
+	flex: 1 1 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+}
+.blank-grow:visited {
+	color: #106969;
+}
+.mat-toolbar.mat-primary {
+	background: #c1efdf;
+	color: #106969;
+	height: 80px;
+}
+.icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.icon .auth {
+	padding: 0 2%;
+}

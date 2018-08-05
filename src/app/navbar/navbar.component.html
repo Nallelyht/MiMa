@@ -1,0 +1,25 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav >
+    <mat-nav-list>
+      <a mat-list-item>
+        <span class="auth">Crear Cuenta</span>
+      </a>
+      <a mat-list-item>
+        <span class="auth">Iniciar Sesión</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.open()" fxHide="false" fxHide.gt-sm>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <a [routerLink]="['home']" class="blank-grow">
+      <h1 class="oregano title"> Me Dijo Mi Má</h1>
+      <img src="../../assets/img/flor.png" alt="flor">
+    </a>
+    <span class="icon">
+      <a [routerLink]="['auth']"> Cuenta </a>
+    </span>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</mat-sidenav-container>
