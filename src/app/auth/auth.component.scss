@@ -1,0 +1,29 @@
+.example-form {
+	margin: 100px auto 0;
+	min-width: 150px;
+	max-width: 500px;
+	width: 100%;
+}
+
+.example-full-width {
+	width: 100%;
+}
+h2 {
+	text-align: center;
+}
+section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 85vh;
+	p > span {
+		color: #e76297;
+		cursor: pointer;
+	}
+	.input-error-message.ng-star-inserted {
+		margin-top: -3%;
+		color: red;
+		margin-bottom: 5%;
+		margin-left: 1%;
+	}
+}
