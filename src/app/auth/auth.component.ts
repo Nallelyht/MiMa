@@ -60,8 +60,6 @@ export class AuthComponent implements OnInit {
     this.firebaseService.loginWithGoogle();
   }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() { }
 
 }
