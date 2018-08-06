@@ -15,6 +15,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 // servicios
 import { AuthService } from './services/auth.service';
+import { NewRemedyService } from './services/new-remedy.service';
 
 // material design
 import {
@@ -173,7 +174,8 @@ import 'hammerjs';
     NewRemedyComponent
   ],
   providers: [
-    AuthService
+    AuthService,
+    NewRemedyService
   ],
   bootstrap: [ AppComponent ]
 })

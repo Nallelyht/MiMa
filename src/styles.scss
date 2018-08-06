@@ -35,5 +35,15 @@ h1 {
 	color: #106969;
 }
 .mat-bottom-sheet-container {
-	height: 61vh;
+	height: 65vh;
+	width: 100vw;
+}
+@media only screen and (max-width: 550px) {
+	button.mat-fab.mat-accent {
+		top: 13% !important;
+		right: 8% !important;
+	}
+	mat-sidenav.mat-drawer.mat-sidenav.mat-drawer-over {
+		width: 35vw !important;
+	}
 }

@@ -8,6 +8,7 @@ import { MatBottomSheetRef } from '@angular/material';
 })
 export class NewRemedyComponent implements OnInit {
   ingredients = [];
+  newIngredient: any = {};
 
   constructor(private bottomSheetRef: MatBottomSheetRef<NewRemedyComponent>) {}
 
@@ -20,11 +21,21 @@ export class NewRemedyComponent implements OnInit {
   }
 
   createRemedy(remedy) {
-    console.log(remedy.value);
+    this.newIngredient.title = remedy.value.title;
+    this.newIngredient.description = remedy.value.description;
+    this.newIngredient.ingredients = this.ingredients;
+    console.log(this.newIngredient);
   }
   addIngredient(ingredient, e) {
     e.preventDefault();
     this.ingredients.push(ingredient);
-    console.log(this.ingredients);
+  }
+  removeIngredient(index) {
+    const confirmation = confirm('¿Quieres eliminar el ingrediente ' + this.ingredients[index] + '?');
+    if (confirmation) {
+      this.ingredients.splice(index, 1);
+    } else {
+      return;
+    }
   }
 }

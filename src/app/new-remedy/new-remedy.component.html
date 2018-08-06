@@ -8,15 +8,27 @@
     </div>
     <mat-form-field color="accent" appearance="outline">
       <mat-label>Titulo</mat-label>
-      <input matInput  [(ngModel)]="title" type="text"  name="title" required>
+      <input matInput  [(ngModel)]="title" type="text"  name="title" #titleUser required>
     </mat-form-field>
-    <mat-form-field color="accent" appearance="outline">
+    <mat-form-field color="accent" appearance="outline" style=" width: 35%;">
       <mat-label>Ingredientes</mat-label>
-      <input matInput [(ngModel)]="ingredient"  type="text" name="ingredient" required>
-      <button mat-button *ngIf="ingredient" matSuffix mat-icon-button type="button" aria-label="Clear" (click)="value=''; addIngredient(ingredient, $event)">
+      <input matInput [(ngModel)]="ingredient"  type="text" name="ingredient" #addIng="ngModel" >
+      <button mat-button *ngIf="ingredient" matSuffix mat-icon-button type="button" aria-label="Add" (click)="addIngredient(ingredient, $event); ingredient='';">
         <mat-icon>add</mat-icon>
       </button>
     </mat-form-field>
+    <div *ngIf="addIng.touched && ingredients.length == 0" class="input-error-message">
+        Debes agregar al menos un ingrediente
+    </div>
+    <div class="new_ingredients">
+      <ul *ngFor="let item of ingredients; let i = index">
+        <li>
+          <span #oneIngredient>{{item}}</span>
+          <button mat-button matSuffix mat-icon-button type="button" (click)="removeIngredient(i, oneIngredient)" >
+          <mat-icon>close</mat-icon>
+          </button></li>
+      </ul>
+    </div>
     <mat-form-field color="accent" appearance="outline">
       <mat-label>Descripcion</mat-label>
       <textarea matInput [(ngModel)]="description" type="text" required name="description"></textarea>

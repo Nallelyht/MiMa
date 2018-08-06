@@ -12,7 +12,7 @@ export class AuthComponent implements OnInit {
   isLogged = false;
   errorMail = false;
   user = null;
-  newUser = {};
+  newUser: any = {};
 
   constructor(
     private authService: AuthService,
@@ -25,7 +25,6 @@ export class AuthComponent implements OnInit {
   }
 
   signup(auth) {
-    console.log(auth);
     if (auth.value.password === auth.value.password2) {
       this.newUser.username = auth.value.username;
       this.newUser.password = auth.value.password;
@@ -36,7 +35,6 @@ export class AuthComponent implements OnInit {
       sessionStorage.setItem('user', JSON.stringify(user));
       this.router.navigate(['home']);
     }, (err) => {
-      console.log(JSON.parse(err._body));
       this.errorMail = true;
     });
     }
@@ -45,7 +43,6 @@ export class AuthComponent implements OnInit {
   login(auth) {
     this.authService.login(auth.value)
     .subscribe(user => {
-      console.log(user);
       this.user = user;
       sessionStorage.setItem('user', JSON.stringify(user));
       this.router.navigate(['home']);

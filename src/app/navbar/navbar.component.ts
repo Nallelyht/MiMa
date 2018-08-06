@@ -11,5 +11,5 @@ import { FormControl } from '@angular/forms';
 })
 export class NavbarComponent {
 
-  mode = new FormControl('over');
+  mode = new FormControl('push');
   }

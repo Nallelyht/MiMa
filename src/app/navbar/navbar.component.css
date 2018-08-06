@@ -38,3 +38,21 @@ img {
 .icon .auth {
 	padding: 0 2%;
 }
+button.mat-button.mat-icon-button {
+	right: 0;
+	position: absolute;
+}
+mat-sidenav.mat-drawer.mat-sidenav.ng-tns-c3-0.ng-trigger.ng-trigger-transform.mat-drawer-over.ng-star-inserted {
+	width: 30vw;
+}
+
+a.mat-list-item {
+	margin-left: 9%;
+	color: #106969;
+}
+
+span.auth {
+	color: #106969;
+	font-size: 1.2rem;
+}
+
