@@ -1,3 +1,23 @@
-<p>
-  new-remedy works!
-</p>
+<section>
+  <form class="example-form" #signupForm="ngForm" (ngSubmit)="signup(signupForm)" ngNativeValidate>
+    <div class="title_button">
+      <button  mat-raised-button class="btn">Crear</button>
+      <h1 class="mat-h1">
+        Crear Remedio
+      </h1>
+    </div>
+    <mat-form-field class="example-full-width" color="accent" appearance="outline">
+      <mat-label>Titulo</mat-label>
+      <input matInput  [(ngModel)]="title" type="text"  name="title" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width" color="accent" appearance="outline">
+      <mat-label>Ingredientes</mat-label>
+      <input matInput [(ngModel)]="ingredients"  type="text" name="ingredients" required>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" color="accent" appearance="outline">
+      <mat-label>Descripcion</mat-label>
+      <textarea matInput [(ngModel)]="description" type="text" required name="description"></textarea>
+    </mat-form-field>
+  </form>
+</section>

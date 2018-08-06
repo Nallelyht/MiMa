@@ -89,7 +89,6 @@ import 'hammerjs';
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
-    MatButtonModule,
     MatButtonToggleModule,
     MatCardModule,
     MatCheckboxModule,
@@ -99,7 +98,6 @@ import 'hammerjs';
     MatDividerModule,
     MatExpansionModule,
     MatGridListModule,
-    MatIconModule,
     MatInputModule,
     MatListModule,
     MatMenuModule,
@@ -140,7 +138,6 @@ import 'hammerjs';
     MatAutocompleteModule,
     MatBadgeModule,
     MatBottomSheetModule,
-    MatButtonModule,
     MatButtonToggleModule,
     MatCardModule,
     MatCheckboxModule,
@@ -150,7 +147,6 @@ import 'hammerjs';
     MatDividerModule,
     MatExpansionModule,
     MatGridListModule,
-    MatIconModule,
     MatInputModule,
     MatListModule,
     MatMenuModule,
@@ -172,6 +168,9 @@ import 'hammerjs';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule
+  ],
+  entryComponents: [
+    NewRemedyComponent
   ],
   providers: [
     AuthService

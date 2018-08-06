@@ -1,7 +1,7 @@
 <section *ngIf="isLogged">
 
   <form class="example-form" #loginForm="ngForm" (ngSubmit)="login(loginForm)" ngNativeValidate>
-    <h2 class="mat-h1">Iniciar Sesión</h2>
+    <h1 class="mat-h1">Iniciar Sesión</h1>
     <mat-form-field class="example-full-width" color="accent" appearance="outline">
       <mat-label>Correo Electrónico</mat-label>
       <input matInput [(ngModel)]="email" type="email" name="email" required #emailUser="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" minlength="7">
@@ -38,7 +38,7 @@
 
 <section *ngIf="!isLogged">
   <form class="example-form" #signupForm="ngForm" (ngSubmit)="signup(signupForm)" ngNativeValidate>
-    <h2 class="mat-h1">Crear Cuenta</h2>
+    <h1 class="mat-h1">Crear Cuenta</h1>
     <mat-form-field class="example-full-width" color="accent" appearance="outline">
       <mat-label>Nombre de Usuario</mat-label>
       <input matInput  [(ngModel)]="username" type="text"  name="username">

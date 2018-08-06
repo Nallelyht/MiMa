@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
+import { MatBottomSheet } from '@angular/material';
+import { NewRemedyComponent } from '../new-remedy/new-remedy.component';
 
 @Component({
   selector: 'app-home',
@@ -29,5 +31,9 @@ export class HomeComponent {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private bottomSheet: MatBottomSheet) {}
+
+  openBottomSheet(): void {
+    this.bottomSheet.open(NewRemedyComponent);
+  }
 }
