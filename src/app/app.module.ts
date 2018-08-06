@@ -5,11 +5,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-// componentes
 
+// componentes
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './home/home.component';
+import { NewRemedyComponent } from './new-remedy/new-remedy.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 // servicios
@@ -56,8 +57,6 @@ import {
 } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import 'hammerjs';
-import { NewRemedyComponent } from './new-remedy/new-remedy.component';
-
 
 @NgModule({
   declarations: [
