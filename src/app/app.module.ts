@@ -13,7 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 // servicios
-import { AuthService } from './auth/auth.service';
+import { AuthService } from './services/auth.service';
 
 // material design
 import {
@@ -56,12 +56,21 @@ import {
 } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import 'hammerjs';
+import { NewRemedyComponent } from './new-remedy/new-remedy.component';
 
 
 @NgModule({
-  declarations: [ AppComponent, AuthComponent, HomeComponent, NavbarComponent ],
+  declarations: [
+    AppComponent,
+    AuthComponent,
+    HomeComponent,
+    NavbarComponent,
+    NewRemedyComponent
+  ],
   imports: [
     AppRoutesModule,
+    HttpClientModule,
+    HttpModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatGridListModule,

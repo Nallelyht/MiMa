@@ -1,9 +1,9 @@
 <section *ngIf="isLogged">
 
-  <form class="example-form" #loginForm="ngForm" (ngSubmit)="recibiendoElForm(loginForm)" ngNativeValidate>
+  <form class="example-form" #loginForm="ngForm" (ngSubmit)="login(loginForm)" ngNativeValidate>
     <h2 class="mat-h1">Iniciar Sesión</h2>
     <mat-form-field class="example-full-width" color="accent" appearance="outline">
-      <mat-label>Correo Electronico</mat-label>
+      <mat-label>Correo Electrónico</mat-label>
       <input matInput [(ngModel)]="email" type="email" name="email" required #emailUser="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" minlength="7">
     </mat-form-field>
     <div *ngIf="emailUser.invalid && emailUser.touched" class="input-error-message" >
@@ -19,11 +19,17 @@
       <mat-label>Contraseña</mat-label>
       <input matInput [(ngModel)]="password"  type="password" name="password" required #passwordUser="ngModel" min="1">
     </mat-form-field>
-    <div *ngIf="passwordUser.invalid && passwordUser.touched" class="input-error-message" >
+    <div *ngIf="passwordUser.invalid && passwordUser.touched" class="input-error-message">
       <div *ngIf="!passwordUser.dirty || passwordUser.touched">
         Ingresa tu contraseña
       </div>
     </div>
+    <h2>
+      Entra con Facebook <button (click)="loginWithFacebook()" >Facebook Login</button>
+    </h2>
+    <h2>
+      Entra con Google <button (click)="loginWithGoogle()" >Facebook Login</button>
+    </h2>
     <button  mat-raised-button class="btn" [disabled]="emailUser.errors ||passwordUser.errors">Entrar</button>
     <p>Ya tienes cuenta? <span (click)="isLogged=!isLogged" >Click aquí</span></p>
   </form>
@@ -31,19 +37,26 @@
 
 
 <section *ngIf="!isLogged">
-  <form class="example-form" #signupForm="ngForm" (ngSubmit)="recibiendoElForm(signupForm)" ngNativeValidate>
+  <form class="example-form" #signupForm="ngForm" (ngSubmit)="signup(signupForm)" ngNativeValidate>
     <h2 class="mat-h1">Crear Cuenta</h2>
     <mat-form-field class="example-full-width" color="accent" appearance="outline">
-      <input matInput  [(ngModel)]="username" placeholder="Nombre de Usuario" type="text"  name="username">
+      <mat-label>Nombre de Usuario</mat-label>
+      <input matInput  [(ngModel)]="username" type="text"  name="username">
     </mat-form-field>
     <mat-form-field class="example-full-width" color="accent" appearance="outline">
-      <input matInput placeholder="Correo Electronico" [(ngModel)]="email" type="text" name="email">
+      <mat-label>Correo Electrónico</mat-label>
+      <input matInput [(ngModel)]="email" type="text" name="email">
+    </mat-form-field>
+    <div *ngIf="errorMail" class="input-error-message">
+      Este correo electrónico ya está registrado
+    </div>
+    <mat-form-field class="example-full-width" color="accent" appearance="outline">
+      <mat-label>Contraseña</mat-label>
+      <input matInput [(ngModel)]="password"  type="password" name="password">
     </mat-form-field>
     <mat-form-field class="example-full-width" color="accent" appearance="outline">
-      <input matInput placeholder="Contraseña" [(ngModel)]="password"  type="password" name="password">
-    </mat-form-field>
-    <mat-form-field class="example-full-width" color="accent" appearance="outline">
-      <input matInput placeholder="Contraseña" [(ngModel)]="password2"  type="password" name="password2">
+      <mat-label>Repite tu Contraseña</mat-label>
+      <input matInput [(ngModel)]="password2"  type="password" name="password2">
     </mat-form-field>
     <button  mat-raised-button class="btn">Crear</button>
     <p>Ya tienes cuenta? <span (click)="isLogged=!isLogged" >Click aquí</span></p>
