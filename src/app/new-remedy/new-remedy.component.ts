@@ -7,6 +7,7 @@ import { MatBottomSheetRef } from '@angular/material';
   styleUrls: ['./new-remedy.component.scss']
 })
 export class NewRemedyComponent implements OnInit {
+  ingredients = [];
 
   constructor(private bottomSheetRef: MatBottomSheetRef<NewRemedyComponent>) {}
 
@@ -18,4 +19,12 @@ export class NewRemedyComponent implements OnInit {
   ngOnInit() {
   }
 
+  createRemedy(remedy) {
+    console.log(remedy.value);
+  }
+  addIngredient(ingredient, e) {
+    e.preventDefault();
+    this.ingredients.push(ingredient);
+    console.log(this.ingredients);
+  }
 }

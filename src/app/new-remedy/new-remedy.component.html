@@ -1,21 +1,23 @@
 <section>
-  <form class="example-form" #signupForm="ngForm" (ngSubmit)="signup(signupForm)" ngNativeValidate>
+  <form #newRemedyForm="ngForm" (ngSubmit)="createRemedy(newRemedyForm)" ngNativeValidate>
     <div class="title_button">
       <button  mat-raised-button class="btn">Crear</button>
       <h1 class="mat-h1">
         Crear Remedio
       </h1>
     </div>
-    <mat-form-field class="example-full-width" color="accent" appearance="outline">
+    <mat-form-field color="accent" appearance="outline">
       <mat-label>Titulo</mat-label>
       <input matInput  [(ngModel)]="title" type="text"  name="title" required>
     </mat-form-field>
-    <br>
-    <mat-form-field class="example-full-width" color="accent" appearance="outline">
+    <mat-form-field color="accent" appearance="outline">
       <mat-label>Ingredientes</mat-label>
-      <input matInput [(ngModel)]="ingredients"  type="text" name="ingredients" required>
+      <input matInput [(ngModel)]="ingredient"  type="text" name="ingredient" required>
+      <button mat-button *ngIf="ingredient" matSuffix mat-icon-button type="button" aria-label="Clear" (click)="value=''; addIngredient(ingredient, $event)">
+        <mat-icon>add</mat-icon>
+      </button>
     </mat-form-field>
-    <mat-form-field class="example-full-width" color="accent" appearance="outline">
+    <mat-form-field color="accent" appearance="outline">
       <mat-label>Descripcion</mat-label>
       <textarea matInput [(ngModel)]="description" type="text" required name="description"></textarea>
     </mat-form-field>

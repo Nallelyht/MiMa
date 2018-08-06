@@ -1,21 +1,27 @@
 .grid-container {
-  margin:100px 20px 20px;
+	margin: 30px 20px 20px;
 }
 
 .dashboard-card {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	right: 15px;
+	bottom: 15px;
 }
 
-.more-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
+button.more-button.mat-icon-button {
+	position: absolute;
+	top: 11px;
+	left: 1px;
 }
-
 .dashboard-card-content {
-  text-align: center;
+	text-align: center;
+}
+
+button.mat-fab.mat-accent {
+	position: fixed;
+	right: 4%;
+	top: 2%;
+	z-index: 2;
 }
