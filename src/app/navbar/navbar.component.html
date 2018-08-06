@@ -5,8 +5,14 @@
             <mat-icon>close</mat-icon>
           </button>
       <a mat-list-item [routerLink]="['auth']" style="
-      margin-top: 30%;" (click)="sidenav.close()">
+      margin-top: 30%;" (click)="sidenav.close()" *ngIf="show()">
         <span class="auth">Crear Cuenta</span>
+      </a>
+      <a mat-list-item [routerLink]="['auth']" (click)="sidenav.close()" *ngIf="show()">
+        <span class="auth">Iniciar Sesión</span>
+      </a>
+      <a mat-list-item [routerLink]="['home']" (click)="logout(); sidenav.close()" style="margin-top: 30%;">
+        <span class="auth" *ngIf="!show()">Cerrar Sesión</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>

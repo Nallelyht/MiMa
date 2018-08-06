@@ -1,4 +1,4 @@
-<button  mat-fab (click)="openBottomSheet()"><mat-icon>add</mat-icon></button>
+<button *ngIf="!show()"  mat-fab (click)="openBottomSheet()"><mat-icon>add</mat-icon></button>
 <div class="grid-container">
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">

@@ -7,9 +7,8 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  // url = 'http://localhost:3000/api/';
-  url = '/api/';
-
+   url = 'http://localhost:3000/api/';
+ // url = '/api/';
   constructor(
     private http: Http
   ) { }
@@ -24,13 +23,18 @@ export class AuthService {
     .pipe(map(res => res.json()));
   }
 
-  getPrivatePhones() {
-    return this.http.get(this.url + 'private', {withCredentials: true})
-    .pipe(map(res => res.json()));
-  }
 
   logout() {
-    localStorage.removeItem('user');
+    sessionStorage.removeItem('user');
+    return this.http.get(this.url + 'logout').toPromise()
+      .then((res: Response) => res.json())
+      .catch(e => console.log(e));
   }
-
+  show () {
+    if (sessionStorage.getItem('user') === null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
