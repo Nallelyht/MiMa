@@ -12,6 +12,7 @@ import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './home/home.component';
 import { NewRemedyComponent } from './new-remedy/new-remedy.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CommentComponent } from './comment/comment.component';
 
 // servicios
 import { AuthService } from './services/auth.service';
@@ -67,7 +68,8 @@ import { RemedyDetailComponent } from './remedy-detail/remedy-detail.component';
     HomeComponent,
     NavbarComponent,
     NewRemedyComponent,
-    RemedyDetailComponent
+    RemedyDetailComponent,
+    CommentComponent
   ],
   imports: [
     AppRoutesModule,
@@ -173,7 +175,8 @@ import { RemedyDetailComponent } from './remedy-detail/remedy-detail.component';
     MatTreeModule
   ],
   entryComponents: [
-    NewRemedyComponent
+    NewRemedyComponent,
+    CommentComponent
   ],
   providers: [
     AuthService,

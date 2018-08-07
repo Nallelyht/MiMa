@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NewRemedyService } from '../services/new-remedy.service';
+import { MatBottomSheet } from '@angular/material';
+import { CommentComponent } from '../comment/comment.component';
 
 @Component({
   selector: 'app-remedy-detail',
@@ -12,11 +14,13 @@ export class RemedyDetailComponent implements OnInit {
   user: any;
   remedy: any;
   fav = false;
+  comments = [];
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private remedyService: NewRemedyService
+    private remedyService: NewRemedyService,
+    private bottomSheet: MatBottomSheet
   ) {
 
     this.route.params.subscribe(params => {
@@ -35,5 +39,14 @@ export class RemedyDetailComponent implements OnInit {
 
   ngOnInit() {
   }
+  openBottomSheet() {
+    const sheet = this.bottomSheet.open(CommentComponent);
 
+    sheet.backdropClick().subscribe(() => {
+      console.log('dbclicked');
+    });
+    sheet.afterDismissed().subscribe((comment) => {
+      this.comments.push(comment);
+    });
+  }
 }
