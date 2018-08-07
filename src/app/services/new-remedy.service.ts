@@ -7,15 +7,14 @@ import {map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class NewRemedyService {
+    url = 'http://localhost:3000/api/remedies/';
+//  url = '/api/remedies/';
 
-  url = '/api/remedies/';
-  constructor(private http: Http) {}
+constructor(private http: Http) {}
 
   // get all remedies
-  getAllremedies() {
-      return this.http.get(this.url).toPromise()
-      .then((res: Response) => res.json())
-      .catch(e => console.log(e));
+  getAllRemedies() {
+      return this.http.get(this.url).pipe(map((res: Response) => res.json()));
   }
   // get one remedy
   getOneRemedy(id) {
@@ -39,5 +38,13 @@ export class NewRemedyService {
   deleteRemedy(id) {
       return this.http.delete(this.url + id)
           .pipe(map((res: Response) => res.json()));
+  }
+  getNewRemedy() {
+      let remedy;
+      if (sessionStorage.getItem('newRemedy')) {
+          remedy = JSON.parse(sessionStorage.getItem('newRemedy'));
+        return remedy;
+      }
+      return;
   }
 }

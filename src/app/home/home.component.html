@@ -1,22 +1,28 @@
-<button *ngIf="!show()"  mat-fab (click)="openBottomSheet()"><mat-icon>add</mat-icon></button>
+<button *ngIf="!show()" mat-fab (click)="openBottomSheet()"><mat-icon>add</mat-icon></button>
 <div class="grid-container">
   <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+    <mat-grid-tile *ngFor="let remedy of remedies" [colspan]="1" [rowspan]="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            {{card.title}}
+            <a [routerLink]="['/remedyDetail']" (click)="viewDetails(remedy._id)">
+              <h3>{{remedy.title}}</h3>
+            </a> 
             <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
+              <button mat-menu-item>Comentar</button>
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
+          <mat-list *ngFor="let ingredient of remedy.ingredients">
+            <mat-list-item>
+              <p mat-line>{{ingredient}}</p>
+            </mat-list-item>
+          </mat-list>
+          <div>{{remedy.description}}</div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

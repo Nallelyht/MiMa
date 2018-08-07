@@ -58,6 +58,7 @@ import {
 } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
 import 'hammerjs';
+import { RemedyDetailComponent } from './remedy-detail/remedy-detail.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import 'hammerjs';
     AuthComponent,
     HomeComponent,
     NavbarComponent,
-    NewRemedyComponent
+    NewRemedyComponent,
+    RemedyDetailComponent
   ],
   imports: [
     AppRoutesModule,
