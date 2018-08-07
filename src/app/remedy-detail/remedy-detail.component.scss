@@ -1,13 +1,19 @@
 .example-card {
-  max-width: 65%;
+	max-width: 65%;
 }
 
 .example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+	background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+	background-size: cover;
 }
 section {
-  display:  flex;
-  justify-content: center;
-  margin: 5%;
+	display: flex;
+	justify-content: center;
+	margin: 5%;
+	.mat-h1 {
+		margin: 0 20%;
+	}
+	mat-icon{
+		color: gray;
+	}
 }
