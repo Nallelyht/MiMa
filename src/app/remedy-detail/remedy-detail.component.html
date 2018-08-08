@@ -45,5 +45,17 @@
         </li>
       </ul>
     </mat-card-content>
+    <mat-card-content *ngIf="remedy.comments.length == 0">
+      <h2 class="mat-h2">Comentarios</h2>
+      <ul  *ngFor="let comment of remedy.comments" class="commentsList">
+        <li>
+          <p><strong>{{comment.username}}:</strong> {{comment.body}}
+          <br>
+          <small>{{comment.created_at| date: 'dd/MM/yyyy'}}</small>
+        </p>
+          
+        </li>
+      </ul>
+    </mat-card-content>
   </mat-card>
 </section>

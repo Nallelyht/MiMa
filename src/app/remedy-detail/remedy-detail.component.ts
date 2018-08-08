@@ -16,7 +16,7 @@ export class RemedyDetailComponent implements OnInit {
   user: any;
   remedy: any = {};
   fav = false;
-  /* comments = []; */
+  arrayComments = [];
 
   constructor(
     private router: Router,
@@ -49,9 +49,10 @@ export class RemedyDetailComponent implements OnInit {
       console.log('dbclicked');
     });
     sheet.afterDismissed().subscribe((comment) => {
-     const arrayComments = [];
-     arrayComments.push(comment);
-     this.remedy.comments = arrayComments;
+      if (this.remedy.comments.length === 0) {
+        this.arrayComments.push(comment);
+      }
+      this.remedy.comments.push(comment);
     });
   }
   show() {
