@@ -1,0 +1,30 @@
+<section>
+
+  <form class="example-form" #loginForm="ngForm" (ngSubmit)="login(loginForm)" ngNativeValidate>
+    <h1 class="mat-h1">Iniciar Sesión</h1>
+    <mat-form-field class="example-full-width" color="accent" appearance="outline">
+      <mat-label>Correo Electrónico</mat-label>
+      <input matInput [(ngModel)]="email" type="email" name="email" required #emailUser="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" minlength="7">
+    </mat-form-field>
+    <div *ngIf="emailUser.invalid && emailUser.touched" class="input-error-message" >
+      <div *ngIf="!passwordUser.dirty || passwordUser.touched">
+        Ingresa tu correo
+      </div>
+      <div *ngIf="emailUser.errors.pattern">
+        Debe ingresar un correo válido.
+      </div>
+    </div>
+
+    <mat-form-field class="example-full-width inputColor" color="accent" appearance="outline">
+      <mat-label>Contraseña</mat-label>
+      <input matInput [(ngModel)]="password"  type="password" name="password" required #passwordUser="ngModel" min="1">
+    </mat-form-field>
+    <div *ngIf="passwordUser.invalid && passwordUser.touched" class="input-error-message">
+      <div *ngIf="!passwordUser.dirty || passwordUser.touched">
+        Ingresa tu contraseña
+      </div>
+    </div>
+    <button  mat-raised-button class="btn" [disabled]="emailUser.errors ||passwordUser.errors">Entrar</button>
+    <p>Ya tienes cuenta? <span [routerLink]="['/signup']">Click aquí</span></p>
+  </form>
+</section>

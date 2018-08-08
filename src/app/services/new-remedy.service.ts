@@ -7,8 +7,8 @@ import {map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class NewRemedyService {
-    url = 'http://localhost:3000/api/remedies/';
-//  url = '/api/remedies/';
+   /* url = 'http://localhost:3000/api/remedies/'; */
+ url = '/api/remedies/';
 
 constructor(private http: Http) {}
 

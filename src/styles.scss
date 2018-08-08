@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import "./app/_scss/_var.scss";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300|Oregano');
 html {
 	height: 100%;
 }
@@ -9,9 +10,13 @@ body {
 	font-family: 'Roboto', sans-serif;
 	color: $principal-color;
 }
-/* [class*="mat-"] {
-	color: $principal-color;
-} */
+.oregano {
+	font-family: 'Oregano';
+}
+.montserrat {
+	font-family: 'Montserrat';
+	color: #f5a5b8;
+}
 .container {
 	max-width: 90%;
 	margin: 0 auto;
@@ -46,4 +51,11 @@ h1 {
 	mat-sidenav.mat-drawer.mat-sidenav.mat-drawer-over {
 		width: 35vw !important;
 	}
+}
+.splash {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background: #c1efdf;
 }

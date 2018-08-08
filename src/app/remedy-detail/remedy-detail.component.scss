@@ -1,5 +1,7 @@
 .example-card {
 	max-width: 65%;
+	width: 814px;
+	height: 100%;
 }
 
 .example-header-image {
@@ -10,10 +12,26 @@ section {
 	display: flex;
 	justify-content: center;
 	margin: 5%;
+	padding-bottom: 2%;
+	padding-top: 3%;
+	height: 80vh;
 	.mat-h1 {
 		margin: 0 20%;
 	}
-	mat-icon{
+	mat-icon {
 		color: gray;
+	}
+}
+mat-card-actions.mat-card-actions.ng-star-inserted {
+	text-align: center;
+	left: 33.33%;
+	right: 33.33%;
+}
+.commentsList {
+	li {
+		list-style: none;
+		p {
+			margin-bottom: 0;
+		}
 	}
 }

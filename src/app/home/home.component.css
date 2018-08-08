@@ -1,5 +1,5 @@
 .grid-container {
-	margin: 30px 20px 20px;
+	margin: 30px 20px 10%;
 }
 
 .dashboard-card {
@@ -23,8 +23,23 @@ button.mat-fab.mat-accent {
 	position: fixed;
 	right: 4%;
 	top: 2%;
-	z-index: 2;
+	z-index: 10;
 }
 h3 {
 	margin: 0;
+}
+a {
+	text-decoration: none;
+	color: #106969;
+	font: 400 21px/21px Roboto, "Helvetica Neue", sans-serif;
+}
+.header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 40vh;
+	background: #c1efdf;
+}
+a.mat-menu-item {
+	height: auto;
 }

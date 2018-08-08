@@ -10,12 +10,18 @@ import { NewRemedyService } from '../services/new-remedy.service';
 export class NewRemedyComponent implements OnInit {
   ingredients = [];
   newIngredient: any = {};
+  editable: any = {};
 
   constructor(
     @Inject(MAT_BOTTOM_SHEET_DATA) public data: any,
     private bottomSheetRef: MatBottomSheetRef<NewRemedyComponent>,
     private remedyService: NewRemedyService
-  ) {}
+  ) {
+    if (this.data !== null) {
+      this.editable = this.data;
+      this.ingredients = this.data.ingredients;
+    }
+  }
 
   openLink(event: MouseEvent): void {
     this.bottomSheetRef.dismiss();
@@ -26,15 +32,20 @@ export class NewRemedyComponent implements OnInit {
   }
 
   createRemedy(remedy) {
-    this.newIngredient.title = remedy.value.title;
-    this.newIngredient.description = remedy.value.description;
-    this.newIngredient.ingredients = this.ingredients;
-    this.newIngredient.idUser = JSON.parse(sessionStorage.getItem('user')).id;
-    console.log(this.newIngredient);
-
-    this.remedyService.createRemedy(this.newIngredient).subscribe(newRemedy => {
-      this.bottomSheetRef.dismiss(newRemedy);
-    });
+      this.newIngredient.title = remedy.value.title;
+      this.newIngredient.description = remedy.value.description;
+      this.newIngredient.ingredients = this.ingredients;
+      this.newIngredient.idUser = JSON.parse(sessionStorage.getItem('user')).id;
+    if (this.data === null) {
+      this.remedyService.createRemedy(this.newIngredient).subscribe(newRemedy => {
+        this.bottomSheetRef.dismiss(newRemedy);
+      });
+    } else if ( this.data !== null) {
+      this.newIngredient._id = this.data._id;
+      this.remedyService.editOneRemedy(this.newIngredient).subscribe(editRemedy => {
+        this.bottomSheetRef.dismiss();
+      });
+    }
   }
   addIngredient(ingredient, e) {
     e.preventDefault();

@@ -8,7 +8,7 @@
     </div>
     <mat-form-field color="accent" appearance="outline">
       <mat-label>Titulo</mat-label>
-      <input matInput  [(ngModel)]="title" type="text"  name="title" #titleUser required>
+      <input matInput  [(ngModel)]="editable.title" type="text"  name="title" #title required>
     </mat-form-field>
     <mat-form-field color="accent" appearance="outline" style=" width: 35%;">
       <mat-label>Ingredientes</mat-label>
@@ -31,7 +31,7 @@
     </div>
     <mat-form-field color="accent" appearance="outline">
       <mat-label>Descripcion</mat-label>
-      <textarea matInput [(ngModel)]="description" type="text" required name="description"></textarea>
+      <textarea matInput [(ngModel)]="editable.description" type="text" required name="description"></textarea>
     </mat-form-field>
   </form>
 </section>

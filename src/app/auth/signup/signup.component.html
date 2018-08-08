@@ -1,0 +1,26 @@
+<section>
+  <form class="example-form" #signupForm="ngForm" (ngSubmit)="signup(signupForm)" ngNativeValidate>
+    <h1 class="mat-h1">Crear Cuenta</h1>
+    <mat-form-field class="example-full-width" color="accent" appearance="outline">
+      <mat-label>Nombre de Usuario</mat-label>
+      <input matInput  [(ngModel)]="username" type="text"  name="username">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" color="accent" appearance="outline">
+      <mat-label>Correo Electrónico</mat-label>
+      <input matInput [(ngModel)]="email" type="text" name="email">
+    </mat-form-field>
+    <div *ngIf="errorMail" class="input-error-message">
+      Este correo electrónico ya está registrado
+    </div>
+    <mat-form-field class="example-full-width" color="accent" appearance="outline">
+      <mat-label>Contraseña</mat-label>
+      <input matInput [(ngModel)]="password"  type="password" name="password">
+    </mat-form-field>
+    <mat-form-field class="example-full-width" color="accent" appearance="outline">
+      <mat-label>Repite tu Contraseña</mat-label>
+      <input matInput [(ngModel)]="password2"  type="password" name="password2">
+    </mat-form-field>
+    <button  mat-raised-button class="btn">Crear</button>
+    <p>Ya tienes cuenta? <span [routerLink]="['/login']" >Click aquí</span></p>
+  </form>
+</section>

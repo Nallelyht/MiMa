@@ -60,6 +60,9 @@ import {
 import { LayoutModule } from '@angular/cdk/layout';
 import 'hammerjs';
 import { RemedyDetailComponent } from './remedy-detail/remedy-detail.component';
+import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +72,10 @@ import { RemedyDetailComponent } from './remedy-detail/remedy-detail.component';
     NavbarComponent,
     NewRemedyComponent,
     RemedyDetailComponent,
-    CommentComponent
+    CommentComponent,
+    FooterComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     AppRoutesModule,

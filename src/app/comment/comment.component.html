@@ -1,14 +1,15 @@
 <section>
-    <form #newCommentForm="ngForm" (ngSubmit)="addComment(newCommentForm)" ngNativeValidate>
-      <div class="title_button">
-        <button  mat-raised-button class="btn">Crear</button>
-        <h1 class="mat-h1">
-          Nuevo Comentario
-        </h1>
-      </div>
-      <mat-form-field color="accent" appearance="outline">
-        <mat-label>Descripcion</mat-label>
-        <textarea matInput [(ngModel)]="description" type="text" required name="description"></textarea>
-      </mat-form-field>
-    </form>
-  </section>
+  <div>
+    <div class="title_button">
+      <button  mat-raised-button class="btn" (click)="addComment(body)">Crear</button>
+      <h1 class="mat-h1">
+        Nuevo Comentario
+      </h1>
+    </div>
+    <mat-form-field color="accent" appearance="outline">
+      <mat-label>Descripcion</mat-label>
+      <textarea matInput #body type="text" required name="body"></textarea>
+    </mat-form-field>
+  </div>
+  <h2 class="oregano"> Atentamente {{user.username}}.</h2>
+</section>

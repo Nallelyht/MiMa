@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NewRemedyService } from '../services/new-remedy.service';
 import { MatBottomSheet } from '@angular/material';
 import { CommentComponent } from '../comment/comment.component';
+import { AuthService } from '../services/auth.service';
+import { NewRemedyComponent } from '../new-remedy/new-remedy.component';
 
 @Component({
   selector: 'app-remedy-detail',
@@ -12,13 +14,14 @@ import { CommentComponent } from '../comment/comment.component';
 export class RemedyDetailComponent implements OnInit {
 
   user: any;
-  remedy: any;
+  remedy: any = {};
   fav = false;
-  comments = [];
+  /* comments = []; */
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private authService: AuthService,
     private remedyService: NewRemedyService,
     private bottomSheet: MatBottomSheet
   ) {
@@ -26,13 +29,12 @@ export class RemedyDetailComponent implements OnInit {
     this.route.params.subscribe(params => {
       const idRemedy = this.route.snapshot.params['id'];
       this.remedyService.getOneRemedy(idRemedy).subscribe(oneRemedy => {
-        console.log(oneRemedy);
         this.remedy = oneRemedy;
       });
     });
 
     this.user = JSON.parse(sessionStorage.getItem('user'));
-  }
+   }
   addFav() {
    this.fav = !this.fav;
   }
@@ -40,13 +42,28 @@ export class RemedyDetailComponent implements OnInit {
   ngOnInit() {
   }
   openBottomSheet() {
-    const sheet = this.bottomSheet.open(CommentComponent);
-
+    const sheet = this.bottomSheet.open(CommentComponent, {
+      data: this.remedy
+    });
     sheet.backdropClick().subscribe(() => {
       console.log('dbclicked');
     });
     sheet.afterDismissed().subscribe((comment) => {
-      this.comments.push(comment);
+     const arrayComments = [];
+     arrayComments.push(comment);
+     this.remedy.comments = arrayComments;
     });
+  }
+  show() {
+    return this.authService.show();
+  }
+  openEdit() {
+    const sheet = this.bottomSheet.open(NewRemedyComponent, {
+      data: this.remedy
+    });
+    sheet.backdropClick().subscribe(() => {
+      console.log('dbclicked');
+    });
+    sheet.afterDismissed();
   }
 }

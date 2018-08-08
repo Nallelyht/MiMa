@@ -1,6 +1,9 @@
 <button *ngIf="!show()" mat-fab (click)="openBottomSheet()"><mat-icon>add</mat-icon></button>
+<header class="header">
+  <h1 class="montserrat">REMEDIOS CASEROS</h1>
+</header>
 <div class="grid-container">
-  <mat-grid-list cols="2" rowHeight="350px">
+  <mat-grid-list cols="2" rowHeight="450px">
     <mat-grid-tile *ngFor="let remedy of remedies" [colspan]="1" [rowspan]="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
@@ -8,11 +11,11 @@
             <a [routerLink]="['/remedyDetail']" (click)="viewDetails(remedy._id)">
               <h3>{{remedy.title}}</h3>
             </a> 
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu" *ngIf="!show()">
               <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Comentar</button>
+              <a mat-menu-item [routerLink]="['/remedyDetail']" (click)="viewDetails(remedy._id)">Comentar</a>
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
